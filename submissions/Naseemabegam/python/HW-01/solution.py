@@ -74,8 +74,8 @@ print(type(is_processed))
 print("Numerical variables:")
 # the record_count and file_size_mb are int and float datatypes
 #the int and float are numerical value so i print those values
-print("record_count")
-print("file_size_mb")
+print("record_count:", record_count)
+print("file_size_mb:", file_size_mb)
 
 """Q3. Data Type Investigation
 
@@ -129,7 +129,7 @@ A pipeline has these configuration parameters:
 max_records = 10000
 batch_size = 500
 retry_count = 3
-batches = max_records/batch_size
+batches = max_records // batch_size
 print("Total batches required:", batches)
 
 """Section B - User Input and Operators
@@ -168,9 +168,10 @@ A data ingestion job receives 1,275 records. The pipeline processes 100 records 
 
 total_records = 1275
 batch_size = 100
-complete_batches = total_records/batch_size
+complete_batches = total_records//batch_size
 remaining_records = total_records%batch_size
 total_batches = complete_batches
+
 if remaining_records > 0:
     total_batches += 1
 print("Complete batches:", complete_batches)
@@ -243,7 +244,7 @@ record = {
 if record["customer_id"] is not None:
     print("Record accepted")
 else:
-    print("Record rejected")
+    print("Record rejected: Missing customer ID.")
 
 """Q10. API Response Handling
 
@@ -386,8 +387,9 @@ Processing customer: 101
 Processing customer: 102
 """
 
-customer_id=[101, 102, 103, 104, 105]
-for customer_id in customer_id:
+customer_ids = [101, 102, 103, 104, 105]
+
+for customer_id in customer_ids:
     print("Processing customer:",customer_id)
 
 """Q15. Failed Record Identification
